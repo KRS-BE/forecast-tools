@@ -217,6 +217,121 @@ class ForecastDataPoint
     }
 
     /**
+     * (only defined on daily data points): numerical value representing the
+     * minimum temperatures on the given day in degrees Fahrenheit.
+     *
+     * @return float|bool temperatureLow
+     */
+    public function getTemperatureLow()
+    {
+        $field = 'temperatureLow';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical values representing the
+     * minimum temperatures (and the UNIX times at which they
+     * occur) on the given day in degrees Fahrenheit.
+     *
+     * @return int|bool temperatureLowTime
+     */
+    public function getTemperatureLowTime()
+    {
+        $field = 'temperatureLowTime';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical values representing the
+     * maximumum temperatures (and the UNIX times at which they
+     * occur) on the given day in degrees Fahrenheit.
+     *
+     * @return float|bool temperatureHigh
+     */
+    public function getTemperatureHigh()
+    {
+        $field = 'temperatureHigh';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical values representing the
+     * maximumum temperatures (and the UNIX times at which they
+     * occur) on the given day in degrees Fahrenheit.
+     *
+     * @return int|bool temperatureHighTime
+     */
+    public function getTemperatureHighTime()
+    {
+        $field = 'temperatureHighTime';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (not defined on daily data points): A numerical value representing the
+     * apparent (or “feels like”) temperature at the given time in degrees
+     * Fahrenheit.
+     *
+     * @return string|bool apparentTemperature
+     */
+    public function getApparentTemperature()
+    {
+        $field = 'apparentTemperature';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical value representing the
+     * minimum apparent temperatures on the given day in degrees Fahrenheit.
+     *
+     * @return float|bool apparentTemperatureMin
+     */
+    public function getApparentTemperatureLow()
+    {
+        $field = 'apparentTemperatureMin';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical values representing the
+     * minimum apparent temperatures (and the UNIX times at which they
+     * occur) on the given day in degrees Fahrenheit.
+     *
+     * @return int|bool apparentTemperatureLowTime
+     */
+    public function getApparentTemperatureLowTime()
+    {
+        $field = 'apparentTemperatureMinTime';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical values representing the
+     * maximumum apparent temperatures (and the UNIX times at which they
+     * occur) on the given day in degrees Fahrenheit.
+     *
+     * @return float|bool apparentTemperatureHigh
+     */
+    public function getApparentTemperatureHigh()
+    {
+        $field = 'apparentTemperatureHigh';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
+     * (only defined on daily data points): numerical values representing the
+     * maximumum apparent temperatures (and the UNIX times at which they
+     * occur) on the given day in degrees Fahrenheit.
+     *
+     * @return int|bool apparentTemperatureHighTime
+     */
+    public function getApparentTemperatureHighTime()
+    {
+        $field = 'apparentTemperatureHighTime';
+        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
+    }
+
+    /**
      * (not defined on daily data points): A numerical value representing the
      * temperature at the given time in degrees Fahrenheit.
      *
@@ -280,20 +395,6 @@ class ForecastDataPoint
     public function getTemperatureMaxTime()
     {
         $field = 'temperatureMaxTime';
-
-        return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
-    }
-
-    /**
-     * (not defined on daily data points): A numerical value representing the
-     * apparent (or “feels like”) temperature at the given time in degrees
-     * Fahrenheit.
-     *
-     * @return string|bool apparentTemperature
-     */
-    public function getApparentTemperature()
-    {
-        $field = 'apparentTemperature';
 
         return empty($this->_point_data->$field) ? false : $this->_point_data->$field;
     }
